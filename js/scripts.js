@@ -20,10 +20,31 @@ console.log(enlaces[0]);
 enlaces[0].textContent = 'Nuevo texto para Enlace'
 // enlaces[0].href = 'http://google.com'
 enlaces[0].classList.add('nueva-clases')
-enlaces[0].classList.remove('navegacion__enlace')
+// enlaces[0].classList.remove('navegacion__enlace')
 
 
 
 //getElementByd
 const heading2 = document.getElementById('heading');
 console.log(heading2)
+
+
+//*-Crear HTML con CreateElement
+
+const nuevoEnlace = document.createElement('A');
+
+//Agregar el href
+nuevoEnlace.href = 'nuevo_enlace.html';
+
+//Agregar el texto
+nuevoEnlace.textContent = 'Tienda Virtual';
+
+//Agregar la clase
+nuevoEnlace.classList.add('navegacion__enlace');
+
+//Agregarlo al documento ubicacion
+const navegacion = document.querySelector('.navegacion');
+navegacion.appendChild(nuevoEnlace);
+
+
+console.log(nuevoEnlace);
