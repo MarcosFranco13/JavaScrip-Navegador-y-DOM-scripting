@@ -75,3 +75,11 @@ function imprimir(){
 window.onscroll = function(){
     console.log('Scrolling...');
 }
+
+
+//Seleccionar elements y asociarles un evento
+
+const btnEnviar = document.querySelector('.boton--primario');
+btnEnviar.addEventListener('click', function(){
+  console.log('enviar formulario');
+})
