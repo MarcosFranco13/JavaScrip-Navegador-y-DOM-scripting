@@ -44,42 +44,71 @@ navegacion.appendChild(nuevoEnlace);
 
 console.log(nuevoEnlace);
 
-//*-Eventos en JavaScript
-console.log(1);
+// //*-Eventos en JavaScript
+// console.log(1);
 
-//Documento esta listo evento
+// //Documento esta listo evento
 
-window.addEventListener("load", function () {
-  //Load espera a que el JS y los archivos que dependen del HTML estén listos
-  // call back cuando este evento ocurre sucede esta funcion
-  console.log(2);
-});
+// window.addEventListener("load", function () {
+//   //Load espera a que el JS y los archivos que dependen del HTML estén listos
+//   // call back cuando este evento ocurre sucede esta funcion
+//   console.log(2);
+// });
 
-window.addEventListener("load",imprimir);
+// window.addEventListener("load",imprimir);
 
-window.onload = function () {
-  console.log(3);
-};
+// window.onload = function () {
+//   console.log(3);
+// };
 
-document.addEventListener("DOMContentLoaded", function () {
-  //Espera a que se descarge el HTML, pero no espera CSS o imagenes
-  console.log(5);
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//   //Espera a que se descarge el HTML, pero no espera CSS o imagenes
+//   console.log(5);
+// });
 
-console.log(5);
+// console.log(5);
 
-function imprimir(){
-    console.log(6);
-}
+// function imprimir(){
+//     console.log(6);
+// }
 
-window.onscroll = function(){
-    console.log('Scrolling...');
-}
-
+// window.onscroll = function(){
+//     console.log('Scrolling...');
+// }
 
 //Seleccionar elements y asociarles un evento
 
-const btnEnviar = document.querySelector('.boton--primario');
-btnEnviar.addEventListener('click', function(){
-  console.log('enviar formulario');
-})
+const btnEnviar = document.querySelector(".boton--primario");
+btnEnviar.addEventListener("click", function (evento) {
+  console.log(evento);
+  evento.preventDefault; //PreventDefault ayuda validar un formulario
+
+  console.log("enviar formulario");
+});
+
+//Eventos de los Inputs y Textarea
+
+const datos = {
+  nombre: "",
+  email: "",
+  mensaje: "",
+};
+
+const nombreInput = document.querySelector("#nombre");
+const emailInput = document.querySelector("#email");
+const mensajeInput = document.querySelector("#mensaje");
+
+nombreInput.addEventListener("input", leeTexto);
+
+emailInput.addEventListener("input", leeTexto);
+
+mensajeInput.addEventListener("input", leeTexto);
+
+function leeTexto(e) {
+  //  console.log(e.target.value);
+  // console.log(e.target);
+
+  datos[e.target.id] = e.target.value;
+
+  console.log(datos);
+}
