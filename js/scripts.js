@@ -118,14 +118,14 @@ formulario.addEventListener('submit',function(evento){
   const {nombre, email, mensaje} = datos;
 
   if (nombre === '' || email === '' || mensaje === '') {
-    mostrarError('Todos los campos son obligatorios')
+    mostrarAlerta('Todos los campos son obligatorios', true)
 
     // console.log('Todos los campos son obligatorios');
     return; //Corta la ejecución del código
   }
   
   //Enviar el formulario
-  mostrarEnvio('Formulario enviado correctamente')
+  mostrarAlerta('Formulario enviado correctamente')
 
 });
 
@@ -138,35 +138,26 @@ function leeTexto(e) {
   // console.log(datos);
 };
 
-//Muestra un error en pantalla
-function mostrarError(mensaje){
-  const error = document.createElement('P');
-  error.textContent = mensaje;
+//Funcion 
+function mostrarAlerta(mensaje, error = null){
+  const alerta = document.createElement('P');
+  alerta.textContent = mensaje;
 
-  error.classList.add('error');
+  if (error) {
+    alerta.classList.add('error');
+  }else{
+    alerta.classList.add('correcto');
+  }
 
-  formulario.appendChild(error);
+  formulario.appendChild(alerta);
 
-  //Desaparezca despues de 5 segundos
-  setTimeout(()=> {
-    error.remove();
-
-  }, 2000);
-}
-
-//Muestra envio correcto de formulario
-
-function mostrarEnvio(mensaje){
-  const envio = document.createElement('P');
-  envio.textContent = mensaje;
-
-  envio.classList.add('correcto');
-  formulario.appendChild(envio);
-
-  setTimeout(()=> {
-    envio.remove();
+   setTimeout(()=> {
+    alerta.remove();
 
   }, 2000);
 
 }
 
+
+//Refatoring de codigo 
+//1-Escribir un codigo que fuciones primero sin importar el aspecto que tenga y ya que fucione intenta mejorarlo
